@@ -1,19 +1,23 @@
-import React, { useState } from "react";
-import Admin from "./components/Admin";
-import Employee from "./components/Employee";
-import Navbar from "./components/Navbar";
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Dashboard from './components/Dashboard/Dashboard';
+import Navbar from './components/Navbar/Navbar';
+import Sidebar from './components/Sidebar/Sidebar';
 
-const App = () => {
-  const [role, setRole] = useState("admin"); // Default to "admin"
-
+function App() {
   return (
-    <div>
-      <Navbar setRole={setRole} />
-      <main style={{ padding: "20px" }}>
-        {role === "admin" ? <Admin /> : <Employee />}
-      </main>
-    </div>
+    <Router>
+      <div className="app flex">
+        <Sidebar />
+        <div className="main-content flex-1">
+          <Navbar />
+          <Routes>
+            <Route path="/" element={<Dashboard />} />
+          </Routes>
+        </div>
+      </div>
+    </Router>
   );
-};
+}
 
 export default App;
