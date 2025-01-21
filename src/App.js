@@ -1,16 +1,17 @@
-import React from "react";
-import Header from "./components/Header";
-import Footer from "./components/Footer";
+import React, { useState } from "react";
+import Admin from "./components/Admin";
+import Employee from "./components/Employee";
+import Navbar from "./components/Navbar";
 
 const App = () => {
+  const [role, setRole] = useState("admin"); // Default to "admin"
+
   return (
     <div>
-      <Header />
-      <main>
-        <h2>Welcome to the React App</h2>
-        <p>This is a simple React project with a modular component structure.</p>
+      <Navbar setRole={setRole} />
+      <main style={{ padding: "20px" }}>
+        {role === "admin" ? <Admin /> : <Employee />}
       </main>
-      <Footer />
     </div>
   );
 };
