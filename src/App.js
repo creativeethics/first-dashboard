@@ -1,13 +1,14 @@
-import React from 'react';
-import Header from './Header';
-import Footer from './Footer';
+import React from "react";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
 
 const App = () => {
   return (
     <div>
       <Header />
       <main>
-        {/* Your main content goes here */}
+        <h2>Welcome to the React App</h2>
+        <p>This is a simple React project with a modular component structure.</p>
       </main>
       <Footer />
     </div>
